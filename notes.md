@@ -63,7 +63,7 @@ from emp
 where job  = 'ANALYST' 
 or job = 'SALESMAN';
 
-### 4. Seleccionar el nombre del empleado, cargo y salario. para todos los registros de la tabla empleado, ordenados alfabeticamente por el nombre del empleado
+#### 4. Seleccionar el nombre del empleado, cargo y salario. para todos los registros de la tabla empleado, ordenados alfabeticamente por el nombre del empleado
 
 ```SQL 
 	select ename ,job ,sal from emp order by ename asc; 
