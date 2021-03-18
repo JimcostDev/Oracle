@@ -1,12 +1,12 @@
-## NOTAS ORACLE
+# NOTAS ORACLE
 
-# USUARIOS
+## USUARIOS
 
 -- 1. HR - usuario de prueba
 
 -- 2. System - super usuario
 
-# COMANDOS 
+## COMANDOS 
 
 -- 1. conn o connect -> conexion a bd
 
@@ -14,7 +14,7 @@
 
 -- 3. alter user HR(user-name) account unlock -> desbloquear usuario (debe estar conectado con system)
 
-# SQL (COMMAND LINE)
+## SQL (COMMAND LINE)
 
 -- 1. select * from cat -> visualizar el diccionario de datos del usuario con el que estoy conectado (catalogo)
 
@@ -24,7 +24,7 @@
 
 -- 4. set pagesize 30 -> alto cmd sql
 
-# TIPOS DE DATOS EN UNA BASE DE DATOS
+## TIPOS DE DATOS EN UNA BASE DE DATOS
 
 -- NUMBER (numerico)
 
@@ -32,7 +32,7 @@
 
 -- DATE (fechas)
 
-# CLASE 1 - EJERCICIOS:
+## CLASE 1 - EJERCICIOS:
 
 -- 1. Seleccionar los registros de la tabla empleado, donde el salario este entre 1000 y 3000.
 
