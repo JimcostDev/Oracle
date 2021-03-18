@@ -36,7 +36,7 @@
 
 ### 1. Seleccionar los registros de la tabla empleado, donde el salario este entre 1000 y 3000.
 
-- ```SQL 
+```SQL 
 select * from emp where sal between 1000 and 3000;
 
 select * from emp where sal >= 1000 and sal <= 3000;
@@ -44,11 +44,11 @@ select * from emp where sal >= 1000 and sal <= 3000;
 
 ### 2. Seleccionar los registros de la tabla empleado, donde el salario no este entre 1000 y 3000.
 
-- ```SQL 
+```SQL 
 select * from emp where sal not between 1000 and 3000;
 ```
 
-- ```SQL 
+```SQL 
 	select * from emp where sal < 1000 or sal > 3000;
 ```
 
@@ -56,7 +56,7 @@ select * from emp where sal not between 1000 and 3000;
 
 ```SQL 
 	select * from emp where job  = 'ANALYST' or job = 'SALESMAN';  
-```
+ ```
 
 ### 4. Seleccionar el nombre del empleado, cargo y salario. para todos los registros de la tabla empleado, ordenados alfabeticamente por el nombre del empleado
 
