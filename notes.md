@@ -37,18 +37,16 @@
 ### 1. Seleccionar los registros de la tabla empleado, donde el salario este entre 1000 y 3000.
 
 ```SQL 
-select * from emp where sal between 1000 and 3000;
+	select * from emp where sal between 1000 and 3000;
 
-select * from emp where sal >= 1000 and sal <= 3000;
+	select * from emp where sal >= 1000 and sal <= 3000;
 ```
 
 ### 2. Seleccionar los registros de la tabla empleado, donde el salario no este entre 1000 y 3000.
 
 ```SQL 
-select * from emp where sal not between 1000 and 3000;
-```
+	select * from emp where sal not between 1000 and 3000;
 
-```SQL 
 	select * from emp where sal < 1000 or sal > 3000;
 ```
 
