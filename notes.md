@@ -1,4 +1,4 @@
-# NOTAS ORACLE
+# ORACLE
 
 ## USUARIOS
 
@@ -24,7 +24,7 @@
 
 -- 4. set pagesize 30 -> alto cmd sql
 
-## TIPOS DE DATOS EN UNA BASE DE DATOS
+## TIPOS DE DATOS 
 
 -- NUMBER (numerico)
 
@@ -34,7 +34,7 @@
 
 ## CLASE 1 - EJERCICIOS:
 
--- 1. Seleccionar los registros de la tabla empleado, donde el salario este entre 1000 y 3000.
+### -- 1. Seleccionar los registros de la tabla empleado, donde el salario este entre 1000 y 3000.
 
 select *
 from emp
