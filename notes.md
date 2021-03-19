@@ -32,11 +32,6 @@
 - NVL (Nivelar Valores Nulos a un numero)
 - JOIN (Poder seleccionar informacion de mas de una tabla)
 
-- **SINTAXIS COMPLETA DEL COMANDO SELECT**
-```SQL 
-		select * from emp;
-	```
-
 
 ## TIPOS DE DATOS:
 
