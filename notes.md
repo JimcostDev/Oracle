@@ -16,16 +16,6 @@
 
 ## SQL (COMMAND LINE):
 
-
-```SQL 
-		SELECT lista de campo(s)
-		FROM tabla(s)
-		[WHERE condicion(es)]
-		[GROUP BY lista de campos(s)] => Agrupar por
-		[HAVING condicion] => condicion de agrupamiento
-		[ORDER BY lista de campo(s)] => Ordenamiento
-	```
-
 - select * from cat -> visualizar el diccionario de datos del usuario con el que estoy conectado (catalogo)
 - describe o desc name-table -> visualizar estructura de la tabla
 - set linesize 300 -> ancho cmd sql
@@ -139,5 +129,14 @@
 ```SQL 
 	select job, avg(sal) from emp group by job;
   ```
+### 13. SINTAXIS COMPLETA DEL COMANDO SELECT:
+  ```SQL 
+		SELECT lista de campo(s)
+		FROM tabla(s)
+		[WHERE condicion(es)]
+		[GROUP BY lista de campos(s)] => Agrupar por
+		[HAVING condicion] => condicion de agrupamiento
+		[ORDER BY lista de campo(s)] => Ordenamiento
+	```
  
  ## TALLER:
