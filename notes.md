@@ -1,12 +1,12 @@
 # ORACLE
 
-## USUARIOS
+## USUARIOS:
 
 - HR -> *usuario de prueba*
 
 - System -> **super usuario**
 
-## COMANDOS 
+## COMANDOS:
 
 - conn o connect -> conexion a bd
 
@@ -14,7 +14,7 @@
 
 - alter user HR(user-name) account unlock -> desbloquear usuario (debe estar conectado con system)
 
-## SQL (COMMAND LINE)
+## SQL (COMMAND LINE):
 
 - select * from cat -> visualizar el diccionario de datos del usuario con el que estoy conectado (catalogo)
 
@@ -24,7 +24,7 @@
 
 - set pagesize 30 -> alto cmd sql
 
-## TIPOS DE DATOS 
+## TIPOS DE DATOS:
 
 - NUMBER (numerico)
 
@@ -32,7 +32,7 @@
 
 - DATE (fechas)
 
-## EJERCICIOS:
+## EJERCICIOS EN CLASE:
 
 ### 1. Seleccionar los registros de la tabla empleado, donde el salario este entre 1000 y 3000.
 
@@ -91,3 +91,5 @@
 ```SQL 
 	select ename, job, sal, comm, sal+nvl(comm,0) as TOTAL from emp;
  ```
+ 
+ ## TALLER:
