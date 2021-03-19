@@ -32,14 +32,14 @@
 - NVL (Nivelar Valores Nulos a un numero)
 - JOIN (Poder seleccionar informacion de mas de una tabla)
 
-**SINTAXIS COMPLETA DEL COMANDO SELECT**
+- **SINTAXIS COMPLETA DEL COMANDO SELECT**
 ```SQL 
 		SELECT lista de campo(s)
 		FROM tabla(s)
 		[WHERE condicion(es)]
 		[GROUP BY lista de campos(s)] => Agrupar por
 		[HAVING condicion] => condicion de agrupamiento
-		[ORDER BY lista de campo(s)] => Ordenamiento
+		[ORDER BY lista de campo(s)]; => Ordenamiento
 	```
 
 
