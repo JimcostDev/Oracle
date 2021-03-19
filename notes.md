@@ -16,7 +16,7 @@
 
 ## SQL (COMMAND LINE):
 
-- **SINTAXIS COMPLETA DEL COMANDO SELECT**
+
 ```SQL 
 		SELECT lista de campo(s)
 		FROM tabla(s)
