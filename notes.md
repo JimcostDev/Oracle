@@ -17,22 +17,9 @@
 ## SQL (COMMAND LINE):
 
 - select * from cat -> visualizar el diccionario de datos del usuario con el que estoy conectado (catalogo)
-
 - describe o desc name-table -> visualizar estructura de la tabla
-
 - set linesize 300 -> ancho cmd sql
-
 - set pagesize 30 -> alto cmd sql
-
-- **SINTAXIS COMPLETA DEL COMANDO SELECT**
-```SQL 
-		SELECT lista de campo(s)
-		FROM tabla(s)
-		[WHERE condicion(es)]
-		[GROUP BY lista de campos(s)] => Agrupar por
-		[HAVING condicion] => condicion de agrupamiento
-		[ORDER BY lista de campo(s)] => Ordenamiento
-	```
 - BETWEEN (Entre un rango de valores)
 - NOT BETWEEN (No este entre un rango de valores)
 - IN (Selecciona de una lista)
@@ -44,7 +31,17 @@
 - ORDER BY  (Se utiliza para ordenar, puedo ordernar asc-Ascendente(por defecto) desc-descendente)
 - NVL (Nivelar Valores Nulos a un numero)
 - JOIN (Poder seleccionar informacion de mas de una tabla)
-	
+
+- **SINTAXIS COMPLETA DEL COMANDO SELECT**
+```SQL 
+		SELECT lista de campo(s)
+		FROM tabla(s)
+		[WHERE condicion(es)]
+		[GROUP BY lista de campos(s)] => Agrupar por
+		[HAVING condicion] => condicion de agrupamiento
+		[ORDER BY lista de campo(s)] => Ordenamiento
+	```
+
 
 ## TIPOS DE DATOS:
 
