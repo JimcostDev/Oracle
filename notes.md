@@ -136,7 +136,9 @@
 		WHERE condicion(es)
 		[GROUP BY lista de campos(s)] => Agrupar por
 		[HAVING condicion] => condicion de agrupamiento
-		[ORDER BY lista de campo(s)] => Ordenamiento 	```
+		[ORDER BY lista de campo(s)] => Ordenamiento 
+```		
+		``````
 
  
  ## TALLER:
