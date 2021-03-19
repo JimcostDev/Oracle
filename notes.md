@@ -133,10 +133,10 @@
   ```SQL 
 		SELECT lista de campo(s)
 		FROM tabla(s)
-		[WHERE condicion(es)]
-		[GROUP BY lista de campos(s)] => Agrupar por
-		[HAVING condicion] => condicion de agrupamiento
-		[ORDER BY lista de campo(s)] => Ordenamiento
+		WHERE condicion(es)
+		GROUP BY lista de campos(s) => Agrupar por
+		HAVING condicion => condicion de agrupamiento
+		ORDER BY lista de campo(s) => Ordenamiento
 	```
  
  ## TALLER:
