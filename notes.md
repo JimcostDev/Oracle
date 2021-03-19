@@ -61,5 +61,28 @@
 ```SQL 
 	select ename ,job ,sal from emp order by ename asc; 
   ```
+  
+### 5. Seleccionar los registros de la tabla empleado, donde el cargo no sea analista y vendedor.
 
+```SQL 
+	select * from emp where job  != 'ANALYST' and job != 'SALESMAN';  
+ ```
+
+### 6. seleccionar los registros de la tabla empleado donde la comision es nula.
+
+```SQL 
+	select * from emp where comm is null; 
+ ```
+
+### 7. seleccionar los registros de la tabla empleado donde el nombre inicie con la letra A
+
+```SQL 
+	select * from emp where ename like 'A%'; 
+ ```
+ 
+ ### 8. seleccionar los registros de la tabla empleado donde el nombre no inicie con la letra A
+
+```SQL 
+	select * from emp where ename not like 'A%'; 
+ ```
 
