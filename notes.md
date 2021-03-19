@@ -32,7 +32,7 @@
 
 - DATE (fechas)
 
-## CLASE 1 - EJERCICIOS:
+## EJERCICIOS:
 
 ### 1. Seleccionar los registros de la tabla empleado, donde el salario este entre 1000 y 3000.
 
@@ -86,8 +86,8 @@
 	select * from emp where ename not like 'A%'; 
  ```
 
-### 9. seleccionar los campos nombre, cargo, salario, comision de la tabla empleado y guardar la suma del salario y la comision en un campo llamado ingreso total.
+### 9. seleccionar los campos nombre, cargo, salario, comision de la tabla empleado y guardar la suma del salario y la comision en un campo llamado total.
 
 ```SQL 
-	select ename, job, sal, comm, sal+comm as TINCOME from emp;
+	select ename, job, sal, comm, sal+nvl(comm,0) as TOTAL from emp;
  ```
