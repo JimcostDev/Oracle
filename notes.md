@@ -86,3 +86,8 @@
 	select * from emp where ename not like 'A%'; 
  ```
 
+### 9. seleccionar los campos nombre, cargo, salario, comision de la tabla empleado y guardar la suma del salario y la comision en un campo llamado ingreso total.
+
+```SQL 
+	select ename, job, sal, comm, sal+comm as TINCOME from emp;
+ ```
