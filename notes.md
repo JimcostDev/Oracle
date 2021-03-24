@@ -141,4 +141,38 @@
 		``````
 
  
- ## TALLER:
+ ## TALLER-1:
+  
+ ### 1. Seleccionar el cargo y cantidad de registros por cargo. para la tabla empleado, solo para aquellos donde la cantidad de registros por cargo es mayor o igual a 3.
+ 
+ ```SQL 
+	select job, count(*) 
+	from emp group by job having count(*) >= 3;
+  ```
+### 2. Seleccionar el registro de la tabla empleado, con la fecha de ingreso mas reciente. 
+
+```SQL 
+	select max(hiredate) FINGRESO from emp;
+```
+
+### 3. Seleccionar los registros de la tabla empleado, donde el salario sea mayor o igual al promedio de todos los salarios de la tabla empleado.
+
+```SQL 
+	/* 
+	nota: para averiguar el promedio salarial
+	select avg(sal) from emp;
+	*/
+	select * from emp where sal >= 2073.214;
+```
+
+### 4. Seleccionar el codigo del empleado, cargo, ingresos (salario mas comision) codigo del departamento y nombre del departamento para todos los registros de la tabla empleado. Ordenados de forma descendente por los ingresos.
+
+```SQL 
+	select empno,job, sal+nvl(comm,0)as TOTAL,  e.deptno, dname 
+	from emp e, dept d
+	where e.deptno = d.deptno 
+	order by TOTAL desc;
+```
+ 
+ 
+ 
