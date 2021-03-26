@@ -173,6 +173,56 @@
 	where e.deptno = d.deptno 
 	order by TOTAL desc;
 ```
+
+## TALLER-2:
+
+### 1. Seleccionar el nombre del empleado (en minusculas), lleno tanto a la derecha, como a la izquierda con asteriscos, hasta completar 20 posiciones. Nota: utilizando 1 solo script de sql, debe quedar asi:
+```SQL 
+	/*
+		*******smith*******
+		*******allen********
+		*******ward********
+	*/
+	select lpad(lower(ename),13, '*') ||''|| rpad('*',7, '*') from emp;
+```
+	
+
+### 2. Crear una tabla llamada taller3, de la siguiente manera:
+```SQL 
+	create table taller3
+	(
+		nombres varchar2(40)
+	);
+```
+
+### 3. insertar los siguientes registros en la tabla taller3, asi:
+```SQL 
+	insert into taller3
+	values ('ana paz');
+
+	insert into taller3
+	values ('margarita sinisterra');
+
+	insert into taller3
+	values ('carlos saldarriaga');
+
+	insert into taller3
+	values ('santiago gil');
+
+	insert into taller3
+	values ('eduardo castro');
+```
+
+### 4. Seleccionar solo el nombre (en mayusculas), para todos los registros de la tabla taller3.
+```SQL 
+	select substr(upper(nombres),1, instr(nombres,' ')) from taller3;
+```
+
+
+### 5. Seleccionar solo el apellido (en mayusculas), para todos los registros de la tabla taller3.
+```SQL 
+	select substr(upper(nombres),instr(nombres,' ',-1)) from taller3;
+```
  
  
  
