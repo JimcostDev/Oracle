@@ -16,6 +16,9 @@
 
 ## SQL (COMMAND LINE):
 
+Comando/Sentencia SQL | Concepto/Descripcion
+--|--
+select * from cat |visualizar el diccionario de datos del usuario con el que estoy conectado (catalogo)
 - select * from cat -> visualizar el diccionario de datos del usuario con el que estoy conectado (catalogo)
 - describe o desc name-table -> visualizar estructura de la tabla
 - set linesize 300 -> ancho cmd sql
