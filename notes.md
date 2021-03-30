@@ -163,6 +163,8 @@
 	select avg(sal) from emp;
 	*/
 	select * from emp where sal >= 2073.214;
+	
+	select * from emp where sal >= (select avg(sal) from emp);
 ```
 
 ### 4. Seleccionar el codigo del empleado, cargo, ingresos (salario mas comision) codigo del departamento y nombre del departamento para todos los registros de la tabla empleado. Ordenados de forma descendente por los ingresos.
