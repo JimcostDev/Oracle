@@ -18,8 +18,7 @@
 
 Comando/Sentencia SQL | Concepto/Descripcion
 --|--
-```SQL
-select * from cat``` | Visualizar el diccionario de datos del usuario con el que estoy conectado (catalogo)
+```select * from cat``` | Visualizar el diccionario de datos del usuario con el que estoy conectado (catalogo)
 ```describe o desc name-table``` | visualizar estructura de la tabla
 ```set linesize 300``` | ancho cmd sql
 ```set pagesize 30``` | alto cmd sql
