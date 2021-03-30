@@ -33,7 +33,7 @@ Comando/Sentencia SQL | Concepto/Descripcion
 ```ORDER BY```  | Se utiliza para ordenar, puedo ordernar asc-Ascendente(por defecto) desc-descendente
 ```NVL``` | Nivelar Valores Nulos a un numero
 ```JOIN``` | Poder seleccionar informacion de mas de una tabla
-```UPPER ``` | Convertir a Mayusculas. Ej: ```select ename, upper(ename) from emp;```
+```UPPER ``` | Convertir a Mayusculas. Ej: ```SQL select ename, upper(ename) from emp;```
 
 
 ## TIPOS DE DATOS:
