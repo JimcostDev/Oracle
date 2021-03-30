@@ -18,22 +18,22 @@
 
 Comando/Sentencia SQL | Concepto/Descripcion
 --|--
-select * from cat |visualizar el diccionario de datos del usuario con el que estoy conectado (catalogo)
-- select * from cat -> visualizar el diccionario de datos del usuario con el que estoy conectado (catalogo)
-- describe o desc name-table -> visualizar estructura de la tabla
-- set linesize 300 -> ancho cmd sql
-- set pagesize 30 -> alto cmd sql
-- BETWEEN (Entre un rango de valores)
-- NOT BETWEEN (No este entre un rango de valores)
-- IN (Selecciona de una lista)
-- NOT IN (Selecciona los valores que no estan en la lista)
-- IS NULL (Retorna valores nulos)
-- IS NOT NULL (Retorna valores No nulos)
-- LIKE (Busqueda de patrones)
-- NOT LIKE (Retorna los que no cumplan con la busqueda de patrones)
-- ORDER BY  (Se utiliza para ordenar, puedo ordernar asc-Ascendente(por defecto) desc-descendente)
-- NVL (Nivelar Valores Nulos a un numero)
-- JOIN (Poder seleccionar informacion de mas de una tabla)
+```select * from cat``` | Visualizar el diccionario de datos del usuario con el que estoy conectado (catalogo)
+```select * from cat``` | visualizar el diccionario de datos del usuario con el que estoy conectado (catalogo)
+```describe o desc name-table``` | visualizar estructura de la tabla
+```set linesize 300``` | ancho cmd sql
+```set pagesize 30``` | alto cmd sql
+BETWEEN | Entre un rango de valores
+NOT BETWEEN | No este entre un rango de valores
+IN | Selecciona de una lista
+NOT IN | Selecciona los valores que no estan en la lista
+IS NULL | Retorna valores nulos
+IS NOT NULL | Retorna valores No nulos
+LIKE | Busqueda de patrones 
+NOT LIKE | Retorna los que no cumplan con la busqueda de patrones
+ORDER BY  | Se utiliza para ordenar, puedo ordernar asc-Ascendente(por defecto) desc-descendente
+NVL | Nivelar Valores Nulos a un numero
+JOIN | Poder seleccionar informacion de mas de una tabla
 
 
 ## TIPOS DE DATOS:
