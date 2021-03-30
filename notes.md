@@ -41,7 +41,7 @@ Comando/Sentencia SQL | Concepto/Descripcion
 ```LENGTH ``` | Retorna el tamano de una Cadena. Ej: ```select ename, length(ename) from emp;```
 ```SUBSTR ``` | Retorna una Subcadena. Ej: ```select ename, substr(ename, 1,3) from emp;```
 ```INSTR  ``` | Retorna la posicion del caracter dentro de la cadena. Ej: ```select ename, instr(ename,'A') from emp;```
-CONCATENAR | Unir o Juntar campos y/o cadenas. Ej: ```select ename, job, ename||' '||job from emp;```
+```||' '||``` | Unir o Juntar campos y/o cadenas. Ej: ```select ename, job, ename||' '||job from emp;```
 
 
 ## TIPOS DE DATOS:
