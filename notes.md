@@ -33,7 +33,15 @@ Comando/Sentencia SQL | Concepto/Descripcion
 ```ORDER BY```  | Se utiliza para ordenar, puedo ordernar asc-Ascendente(por defecto) desc-descendente
 ```NVL``` | Nivelar Valores Nulos a un numero
 ```JOIN``` | Poder seleccionar informacion de mas de una tabla
-```UPPER ``` | Convertir a Mayusculas. Ej: ```SQL select ename, upper(ename) from emp;```
+```UPPER ``` | Convertir a mayusculas. Ej: ```select ename, upper(ename) from emp;```
+```LOWER ``` | Convertir a minusculas. Ej: ```select ename, lower(ename) from emp;```
+```INITCAP``` | Convierte el Primer caracter en Mayuscula, el resto en minuscula. Ej: ```select ename, initcap(ename) from emp;```
+```LPAD``` | Llenar o completar a la izquierda con. Ej: ```select ename, lpad(ename,10,'*') from emp;```
+```RPAD ``` | Llenar o completar a la izquierda con. Ej: ```select ename, rpad(ename,10,'-') from emp;```
+```LENGTH ``` | Retorna el tamano de una Cadena. Ej: ```select ename, length(ename) from emp;```
+```SUBSTR ``` | Retorna una Subcadena. Ej: ```select ename, substr(ename, 1,3) from emp;```
+```INSTR  ``` | Retorna la posicion del caracter dentro de la cadena. Ej: ```select ename, instr(ename,'A') from emp;```
+CONCATENAR | Unir o Juntar campos y/o cadenas. Ej: ```select ename, job, ename||' '||job from emp;```
 
 
 ## TIPOS DE DATOS:
