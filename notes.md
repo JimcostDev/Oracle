@@ -241,18 +241,18 @@ Comando/Sentencia SQL | Concepto/Descripcion
 
 ### 1. Seleccionar el codigo de empleado, nombre del empleado, codigo del jefe y nombre del jefe, para todos los registros de la tabla empleado.
 ```SQL 
-		select emp.empno, emp.ename EMPLEADO, emp.mgr COD_JEFE, e.ename JEFE
-		from emp emp
-		inner join emp e ON e.empno = emp.mgr order by empno;
+	select emp.empno, emp.ename EMPLEADO, emp.mgr COD_JEFE, e.ename JEFE
+	from emp emp
+	inner join emp e ON e.empno = emp.mgr order by empno;
 ```
  
 ### 2. Seleccionar los registros de la tabla empleado, con las 2 fechas de ingreso mas reciente. (no utilizar el rownum)
 ```SQL 
-		select  * from emp 
-		where hiredate >=(select max(hiredate) 
-		from emp 
-		where hiredate<>(select max(hiredate) from emp)) 
-		order by hiredate desc;
+	select  * from emp 
+	where hiredate >=(select max(hiredate) 
+	from emp 
+	where hiredate<>(select max(hiredate) from emp)) 
+	order by hiredate desc;
 ```	
 
 ### 3. Seleccionar el codigo del empleado, nombre del empleado, cargo, salario y grado salarial.para todos los registro de la tabla empleado. 
@@ -264,17 +264,18 @@ Comando/Sentencia SQL | Concepto/Descripcion
 ```	
 
 ### 4. Seleccionar los registros de la tabla empleado, para aquellos registros donde el salario esta entre el promedio de salarios de todos los analistas y el promedio de salarios de todos los vendedores.
-	```SQL
-		select * from emp 
-		where sal between (select avg(sal)
-		from emp 
-		where job = 'SALESMAN') 
-		and (select avg(sal) 
-		from emp where  job = 'ANALYST');
 
-		select * from emp 
-		where sal between 1400 AND 3000 
-	```
+```SQL
+	select * from emp 
+	where sal between (select avg(sal)
+	from emp 
+	where job = 'SALESMAN') 
+	and (select avg(sal) 
+	from emp where  job = 'ANALYST');
+
+	select * from emp 
+	where sal between 1400 AND 3000 ;
+```
 
 ### 5. Seleccionar Nombre1, Nombre2, Apellido1 y Apellido2 en Mayusculas, para los registros de la tabla parcial1
 ``` SQL
