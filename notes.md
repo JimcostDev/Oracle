@@ -257,23 +257,23 @@ Comando/Sentencia SQL | Concepto/Descripcion
 
 ### 3. Seleccionar el codigo del empleado, nombre del empleado, cargo, salario y grado salarial.para todos los registro de la tabla empleado. 
 ```SQL
-		select empno, ename, sal, grade
-		from emp,  salgrade 
-		where sal between losal and hisal
-		order by grade desc
+	select empno, ename, sal, grade
+	from emp,  salgrade 
+	where sal between losal and hisal
+	order by grade desc
 ```	
 
 ### 4. Seleccionar los registros de la tabla empleado, para aquellos registros donde el salario esta entre el promedio de salarios de todos los analistas y el promedio de salarios de todos los vendedores.
 	```SQL
-			select * from emp 
-			where sal between (select avg(sal)
-			from emp 
-			where job = 'SALESMAN') 
-			and (select avg(sal) 
-			from emp where  job = 'ANALYST');
+		select * from emp 
+		where sal between (select avg(sal)
+		from emp 
+		where job = 'SALESMAN') 
+		and (select avg(sal) 
+		from emp where  job = 'ANALYST');
 
-			select * from emp 
-			where sal between 1400 AND 3000 
+		select * from emp 
+		where sal between 1400 AND 3000 
 	```
 
 ### 5. Seleccionar Nombre1, Nombre2, Apellido1 y Apellido2 en Mayusculas, para los registros de la tabla parcial1
@@ -314,6 +314,6 @@ Comando/Sentencia SQL | Concepto/Descripcion
 		length(substr(nombre_completo, instr(nombre_completo,' ')+1, length(nombre_completo)))))
 		))APELLIDO2
 		from parcial1 
-	```
+```
  
  
