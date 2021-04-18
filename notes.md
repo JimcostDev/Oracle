@@ -264,27 +264,25 @@ Comando/Sentencia SQL | Concepto/Descripcion
 ```	
 
 ### 4. Seleccionar los registros de la tabla empleado, para aquellos registros donde el salario esta entre el promedio de salarios de todos los analistas y el promedio de salarios de todos los vendedores.
-
 	```SQL
-			R/1 select * from emp 
-				where sal between (select avg(sal)
-				from emp 
-				where job = 'SALESMAN') 
-				and (select avg(sal) 
-				from emp where  job = 'ANALYST');
+			select * from emp 
+			where sal between (select avg(sal)
+			from emp 
+			where job = 'SALESMAN') 
+			and (select avg(sal) 
+			from emp where  job = 'ANALYST');
 
-			R/2 select * from emp 
-				where sal between 1400 AND 3000 
+			select * from emp 
+			where sal between 1400 AND 3000 
 	```
 
 ### 5. Seleccionar Nombre1, Nombre2, Apellido1 y Apellido2 en Mayusculas, para los registros de la tabla parcial1
 ``` SQL
-		R/1 
 		select substr(upper(nombre_completo),1, instr(nombre_completo,' ')) NOMBRE1, 
 		substr(upper(nombre_completo),instr(nombre_completo,' ',-1)) APELLIDO2 
 		from parcial1;
 
-		R/2
+		
 		select 
 		upper(substr(nombre_completo, 1, instr(nombre_completo,' ')-1)) NOMBRE1,
 
