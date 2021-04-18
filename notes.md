@@ -236,6 +236,85 @@ Comando/Sentencia SQL | Concepto/Descripcion
 ```SQL 
 	select substr(upper(nombres),instr(nombres,' ',-1)) from taller3;
 ```
+
+## PARCIAL-1:
+### 1. Seleccionar el codigo de empleado, nombre del empleado, codigo del jefe y nombre del jefe, para todos los registros de la tabla empleado.
+```SQL 
+	select emp.empno, emp.ename EMPLEADO, emp.mgr COD_JEFE, e.ename JEFE
+	from emp emp
+	inner join emp e ON e.empno = emp.mgr order by empno;
+```
  
+### 2. Seleccionar los registros de la tabla empleado, con las 2 fechas de ingreso mas reciente. (no utilizar el rownum)
+```SQL 
+	select  * from emp 
+		where hiredate >=(select max(hiredate) 
+		from emp 
+		where hiredate<>(select max(hiredate) from emp)) 
+		order by hiredate desc;
+	```	
+
+### 3. Seleccionar el codigo del empleado, nombre del empleado, cargo, salario y grado salarial.para todos los registro de la tabla empleado. 
+```SQL
+	select empno, ename, sal, grade
+		from emp,  salgrade 
+		where sal between losal and hisal
+		order by grade desc
+	```	
+
+### 4. Seleccionar los registros de la tabla empleado, para aquellos registros donde el salario esta entre el promedio de salarios de todos los analistas y el promedio de salarios de todos los vendedores.
+
+	```SQL
+	R/1 select * from emp 
+		where sal between (select avg(sal)
+		from emp 
+		where job = 'SALESMAN') 
+		and (select avg(sal) 
+		from emp where  job = 'ANALYST');
+
+	R/2 select * from emp 
+		where sal between 1400 AND 3000 
+	```
+
+### 5. Seleccionar Nombre1, Nombre2, Apellido1 y Apellido2 en Mayusculas, para los registros de la tabla parcial1
+``` SQL
+	R/1 
+	select substr(upper(nombre_completo),1, instr(nombre_completo,' ')) NOMBRE1, 
+	substr(upper(nombre_completo),instr(nombre_completo,' ',-1)) APELLIDO2 
+	from parcial1;
+
+	R/2
+	select 
+	upper(substr(nombre_completo, 1, instr(nombre_completo,' ')-1)) NOMBRE1,
+
+	upper(decode(length(substr(nombre_completo, instr(nombre_completo,' ')+1, length(nombre_completo)))-length
+	(replace(substr(nombre_completo, instr(nombre_completo,' ')+1, length(nombre_completo)), ' ', '')),1, '  ',
+	2,substr(substr(nombre_completo, instr(nombre_completo,' ')+1, length(nombre_completo)) ,
+	1, instr(substr(nombre_completo, instr(nombre_completo,' ')+1, length(nombre_completo)),' ')-1))) NOMBRE2,
+
+	upper(decode(length(substr(nombre_completo, instr(nombre_completo,' ')+1, length(nombre_completo)))-length
+	(replace(substr(nombre_completo, instr(nombre_completo,' ')+1, length(nombre_completo)), ' ', '')),1, 
+	substr(substr(nombre_completo, instr(nombre_completo,' ')+1, length(nombre_completo)) ,
+	1, instr(substr(nombre_completo, instr(nombre_completo,' ')+1, length(nombre_completo)),' ')-1),
+	2,substr(substr(substr(nombre_completo, instr(nombre_completo,' ')+1, length(nombre_completo)),
+	instr(substr(nombre_completo, instr(nombre_completo,' ')+1, length(nombre_completo)),' ')+1,
+	length(substr(nombre_completo, instr(nombre_completo,' ')+1, length(nombre_completo)))),1,
+	instr(substr(substr(nombre_completo, instr(nombre_completo,' ')+1, length(nombre_completo)),
+	instr(substr(nombre_completo, instr(nombre_completo,' ')+1, length(nombre_completo)),' ')+1,
+	length(substr(nombre_completo, instr(nombre_completo,' ')+1, length(nombre_completo)))),' ')-1))) APELLIDO1,
+
+	upper(substr(
+	substr(substr(nombre_completo, instr(nombre_completo,' ')+1, length(nombre_completo)),
+	instr(substr(nombre_completo, instr(nombre_completo,' ')+1, length(nombre_completo)),' ')+1,
+	length(substr(nombre_completo, instr(nombre_completo,' ')+1, length(nombre_completo)))),
+	instr(substr(substr(nombre_completo, instr(nombre_completo,' ')+1, length(nombre_completo)),
+	instr(substr(nombre_completo, instr(nombre_completo,' ')+1, length(nombre_completo)),' ')+1,
+	length(substr(nombre_completo, instr(nombre_completo,' ')+1, length(nombre_completo)))),' ')+1,
+	length(substr(substr(nombre_completo, instr(nombre_completo,' ')+1, length(nombre_completo)),
+	instr(substr(nombre_completo, instr(nombre_completo,' ')+1, length(nombre_completo)),' ')+1,
+	length(substr(nombre_completo, instr(nombre_completo,' ')+1, length(nombre_completo)))))
+	))APELLIDO2
+	from parcial1 
+	```
  
  
