@@ -345,7 +345,7 @@ Comando/Sentencia SQL | Concepto/Descripcion
 ```
 
 ### 2. Crear una tabla llamada Valores, la cual almacene un valor numero de 5 posiciones, e insertar 10 valores diferentes.
-	``` SQL
+``` SQL
 		/*
 			Seleccionar el valor en numeros y el valor en letras.
 			Nota: Tener en cuenta que al insertar cualquier valor de 5 digitos, debe retornar correctamente el valor en letras.
@@ -383,4 +383,22 @@ Comando/Sentencia SQL | Concepto/Descripcion
 			)
 		)AS DESCRIPCION
 		from valores;
-	```
+```
+
+### 3. Seleccionar el nombre del empleado, grado salarial, salario, ingresos (salario mas comision)  y una bonificacion aplicada asi:
+``` SQL
+	/*
+	-si el grado es 5, entonces la bonificacion sera el salario, mas el 50% de los ingresos.
+	-si el grado es 4, entonces la bonificacion sera el salario, mas el 40% de los ingresos.
+	-si el grado es 3, entonces la bonificacion sera el salario, mas el 30% de los ingresos.
+	-Para el resto de grados, la bonificacion sera el salario, mas el 20% de los ingresos.
+	*/
+	select ename, grade, sal, sal+nvl(comm,0) as "INGRESOS TOTALES",
+	decode(
+		grade,5,sal+(sal+nvl(comm,0))*0.5,
+		4,sal+(sal+nvl(comm,0))*0.4,
+		3,sal+(sal+nvl(comm,0))*0.3,
+		sal+(sal+nvl(comm,0))*0.2
+	) as BONIFICACION
+	from emp, salgrade ; 
+```
