@@ -325,3 +325,20 @@ Comando/Sentencia SQL | Concepto/Descripcion
 	-Si ingresos estan entre 1601 y 2500, ingresos altos,
 	-Si ingresos estan entre 2501 y 2999, ingresos superiores,
 	-si ingresos son mayores o iguales que 3000, ingresos muy superiores.
+	
+	``` SQL
+		select empno,ename,e.deptno, dname ,sal, s.grade, sal+nvl(comm,0)as INGRESOS, 
+		decode(greatest(
+			decode(greatest(sal+nvl(comm,0),    0), least(sal+nvl(comm,0),  999), 1, 0),
+			decode(greatest(sal+nvl(comm,0), 1000), least(sal+nvl(comm,0), 1600), 2, 0),
+			decode(greatest(sal+nvl(comm,0), 1601), least(sal+nvl(comm,0), 2500), 3, 0),
+			decode(greatest(sal+nvl(comm,0), 2501), least(sal+nvl(comm,0), 2999), 4, 0)), 
+				1,'INGRESOS BAJOS',
+				2,'INGRESOS MEDIOS',
+				3,'INGRESOS ALTOS',
+				4,'INGRESOS SUPERIORES',
+				'INGRESOS MUY SUPERIORES') AS NIVEL_SALARIAL
+	from emp e, dept d, salgrade s
+	where e.deptno = d.deptno
+	order by INGRESOS desc;
+	```
