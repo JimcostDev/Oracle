@@ -345,7 +345,7 @@ Comando/Sentencia SQL | Concepto/Descripcion
 ```
 
 ### 2. Crear una tabla llamada Valores, la cual almacene un valor numero de 5 posiciones, e insertar 10 valores diferentes.
-``` SQL
+	``` SQL
 		/*
 			Seleccionar el valor en numeros y el valor en letras.
 			Nota: Tener en cuenta que al insertar cualquier valor de 5 digitos, debe retornar correctamente el valor en letras.
@@ -383,4 +383,4 @@ Comando/Sentencia SQL | Concepto/Descripcion
 			)
 		)AS DESCRIPCION
 		from valores;
-```
+	```
