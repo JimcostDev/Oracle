@@ -320,13 +320,14 @@ Comando/Sentencia SQL | Concepto/Descripcion
  ## PARCIAL-FINAL:
  
  ### Realizar un script de sql, para seleccionar lo siguiente: Codigo del Empleado, Nombre del Empleado, Codigo del Departamento, Nombre del Departamento,Salario, Grado salarial, ingresos (salario mas comision) y un nivel de ingresos aplicado asi:
-	-Si ingresos son menores que 1000, ingresos bajos,
-	-Si ingresos estan entre 1000 y 1600, ingresos medios,
-	-Si ingresos estan entre 1601 y 2500, ingresos altos,
-	-Si ingresos estan entre 2501 y 2999, ingresos superiores,
-	-si ingresos son mayores o iguales que 3000, ingresos muy superiores.
-	
 	``` SQL
+		/*
+		-Si ingresos son menores que 1000, ingresos bajos,
+		-Si ingresos estan entre 1000 y 1600, ingresos medios,
+		-Si ingresos estan entre 1601 y 2500, ingresos altos,
+		-Si ingresos estan entre 2501 y 2999, ingresos superiores,
+		-si ingresos son mayores o iguales que 3000, ingresos muy superiores.
+		*/
 		select empno,ename,e.deptno, dname ,sal, s.grade, sal+nvl(comm,0)as INGRESOS, 
 		decode(greatest(
 			decode(greatest(sal+nvl(comm,0),    0), least(sal+nvl(comm,0),  999), 1, 0),
