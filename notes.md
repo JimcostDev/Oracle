@@ -344,7 +344,7 @@ Comando/Sentencia SQL | Concepto/Descripcion
 			order by INGRESOS desc;
 ```
 
-#### 2. Crear una tabla llamada Valores, la cual almacene un valor numero de 5 posiciones, e insertar 10 valores diferentes.
+### 2. Crear una tabla llamada Valores, la cual almacene un valor numero de 5 posiciones, e insertar 10 valores diferentes.
 ``` SQL
 		/*
 			Seleccionar el valor en numeros y el valor en letras.
