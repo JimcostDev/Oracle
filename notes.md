@@ -314,7 +314,7 @@ Comando/Sentencia SQL | Concepto/Descripcion
 		instr(substr(nombre_completo, instr(nombre_completo,' ')+1, length(nombre_completo)),' ')+1,
 		length(substr(nombre_completo, instr(nombre_completo,' ')+1, length(nombre_completo)))))
 		))APELLIDO2
-		from parcial1 
+		from parcial1 ;
 ```
  
  ## PARCIAL-FINAL:
