@@ -339,7 +339,7 @@ Comando/Sentencia SQL | Concepto/Descripcion
 					3,'INGRESOS ALTOS',
 					4,'INGRESOS SUPERIORES',
 					'INGRESOS MUY SUPERIORES') AS NIVEL_SALARIAL
-		from emp e, dept d, salgrade s
-		where e.deptno = d.deptno
-		order by INGRESOS desc;
+			from emp e, dept d, salgrade s
+			where e.deptno = d.deptno
+			order by INGRESOS desc;
 ```
