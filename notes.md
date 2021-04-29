@@ -402,3 +402,41 @@ Comando/Sentencia SQL | Concepto/Descripcion
 	) as BONIFICACION
 	from emp, salgrade ; 
 ```
+
+### 4. Crear la(s) tabla(s) y registros necesarios, para que a partir de los datos de la Altura, Peso y Sexo. Realizar un script de sql para calcular el IMC (Indice de Masa Corporal) de cada persona.
+``` SQL
+	create table IMC(
+        usuario varchar(45),
+        peso float,
+        altura float,
+        sexo char(1)
+    );
+
+	-- 
+	insert into IMC (usuario, peso, altura, sexo)
+		values('Silvia',60,1.56,'F')
+	-- 
+	insert into IMC (usuario, peso, altura, sexo)
+		values('Ronaldo',60,1.85,'M')
+	-- 
+	insert into IMC (usuario, peso, altura, sexo)
+		values('Oswaldo',75,1.82,'M')
+	-- 
+	insert into IMC (usuario, peso, altura, sexo)
+		values('Marco',95,1.82,'M')
+	--
+	insert into IMC (usuario, peso, altura, sexo)
+		values('Lorena',102,1.62,'F')
+
+	-- 
+	 select usuario,peso,altura, sexo,
+		decode(greatest(
+			decode(greatest(peso/(altura*altura), 0), least(peso/(altura*altura),  18.5), 1, 0),
+			decode(greatest(peso/(altura*altura), 18.6), least(peso/(altura*altura),  24.99), 2, 0),
+			decode(greatest(peso/(altura*altura), 25), least(peso/(altura*altura),  29.99), 3, 0)),
+				1,'INFRAPESO',
+				2,'NORMAL',
+				3,'SOBREPESO',
+				'OBESO') AS IMC_ESTADO
+		from IMC;
+```
