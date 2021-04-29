@@ -405,6 +405,7 @@ Comando/Sentencia SQL | Concepto/Descripcion
 
 ### 4. Crear la(s) tabla(s) y registros necesarios, para que a partir de los datos de la Altura, Peso y Sexo. Realizar un script de sql para calcular el IMC (Indice de Masa Corporal) de cada persona.
 ``` SQL
+	--
 	create table IMC(
         usuario varchar(45),
         peso float,
@@ -439,4 +440,201 @@ Comando/Sentencia SQL | Concepto/Descripcion
 				3,'SOBREPESO',
 				'OBESO') AS IMC_ESTADO
 		from IMC;
+```
+
+### 5. Crear las tablas e insertar los registros que uds. consideren necesarios para el manejo de una tabla de posiciones de equipos de futbol.
+``` SQL
+	/*
+	En Futbol los puntos son asi:
+	Partido Ganado.......3 pts
+	Partido Empatado.....1 pt
+	Partido Perdido......0 pt
+
+	PJ-Partidos Jugados
+	PG-Partidos Ganados
+	PE-Partidos Empatados
+	PP-Partidos Perdidos
+	GF-Goles a Favor
+	GC-Goles en Contra
+	GD-Gol diferencia
+	
+	Ejemplo:
+	Posicion	Nombre del Equipo	Puntos	PJ 	PG	PE	PP	GF	GC	GD
+	1			America				15		5	5	0	0	10	3	+7
+	2			Cali				11		5	3	2	0	12	10	+2
+	3			Nacional			10		5	3	1	1	15	9	+6
+	4			Junior				8		5	2	2	1	11	12	-1
+	5			Santafe				7		5	2	1	2	5	5	0
+	6			Medellin			5		5	1	2	2	15	13	+2
+	7			Millonarios			5		5	1	2	2	12	20	-8
+	*/
+	
+	/*******************************CREATES*****************************************/
+
+	------------------------EQUIPO--------------------------------------
+	create table equipo(
+	   eq_codigo char(10),
+	   eq_nombre varchar(40),   
+	   constraint equipo_pk primary key(eq_codigo)
+	);
+	-------------------------VISITANTE-LOCAL------------------------------
+	create table vis_loc(
+		vis_loc_codigo char(10),
+		vis_loc_nombre varchar(40),
+		constraint vis_loc_pk primary key(vis_loc_codigo)  
+	);
+	------------------------JUGADOR-----------------------------------
+	create table jugador(
+		ju_codigo char(10),
+		eq_codigo char(10),
+		ju_nombres varchar(40),
+		ju_apellidos varchar(40),
+	   constraint jugador_pk primary key(ju_codigo),
+	   constraint ju_eq_fk foreign key (eq_codigo) references equipo (eq_codigo)
+	);
+	-------------------------PARTIDO------------------------------------
+	create table partido(
+	   par_codigo char(10),
+	   fecha date,
+	   eq_codigo char(10),
+	   vis_loc_codigo char(10),
+	   n_partido char(2),
+	   constraint partido_pk primary key(par_codigo),
+	   constraint  vi_lo_par_fk foreign key (vis_loc_codigo) references vis_loc (vis_loc_codigo),
+	   constraint  eq_par_fk foreign key (eq_codigo) references equipo (eq_codigo)
+	);
+	-------------------------PUNTOS-------------------------------------
+	create table puntos(
+	   pun_codigo char(10),
+	   descripcion varchar(40),
+	   puntos number (1),   
+	   constraint puntos_pk primary key(pun_codigo)
+	); 
+	-------------------------RESULTADO----------------------------------
+	CREATE TABLE resultado(
+	   res_codigo char(10),
+	   par_codigo char(10),
+	   eq_codigo char(10),
+	   pun_codigo char(10),   
+	   constraint resultados_pk primary key(res_codigo),
+	   constraint re_eq_fk foreign key (eq_codigo) references equipo (eq_codigo),
+	   constraint re_pun_fk foreign key (pun_codigo) references puntos (pun_codigo),
+	   constraint par_pun_fk foreign key (par_codigo) references partido (par_codigo)
+	);
+	-------------------------GOLES--------------------------------------
+	create table goles(
+	   gol_codigo char(10),
+	   par_codigo char(10),
+	   ju_codigo char(10), 
+	   gol_cant char(2),
+	   constraint gol_pk primary key(gol_codigo),
+	   constraint ju_gol_fk foreign key (ju_codigo) references jugador (ju_codigo),
+	   constraint par_gol_fk foreign key (par_codigo) references partido (par_codigo)
+	);
+
+
+	/*******************************INSERTS*****************************************/
+
+	--------------------------EQUIPO------------------------------------------------
+	insert  into equipo (eq_codigo,eq_nombre)
+	values(1,'Cali');
+	insert  into equipo (eq_codigo,eq_nombre)
+	values(2,'America');
+	insert  into equipo (eq_codigo,eq_nombre)
+	values(3,'Nacional');
+
+	select * from equipo;
+
+	--------------------------VISITANTE-LOCAL---------------------------------------
+	insert  into vis_loc (vis_loc_codigo,vis_loc_nombre)
+	values(1,'Local');
+	insert  into vis_loc (vis_loc_codigo,vis_loc_nombre)
+	values(2,'Visitante');
+
+	select * from vis_loc;
+
+	--------------------------PARTIDO-----------------------------------------------
+	insert  into partido (par_codigo,fecha,eq_codigo,vis_loc_codigo,n_partido)
+	values(1,'21/04/2021',1,1,1);
+	insert  into partido (par_codigo,fecha,eq_codigo,vis_loc_codigo,n_partido)
+	values(2,'21/04/2021',2,2,1);
+	insert  into partido (par_codigo,fecha,eq_codigo,vis_loc_codigo,n_partido)
+	values(3,'26/04/2021',1,2,2);
+	insert  into partido (par_codigo,fecha,eq_codigo,vis_loc_codigo,n_partido)
+	values(4,'26/04/2021',3,1,1);
+	insert  into partido (par_codigo,fecha,eq_codigo,vis_loc_codigo,n_partido)
+	values(5,'29/04/2021',2,2,2);
+	insert  into partido (par_codigo,fecha,eq_codigo,vis_loc_codigo,n_partido)
+	values(6,'29/04/2021',1,1,2);
+
+
+	select * from partido;
+
+	--------------------------JUGADOR-----------------------------------------------
+	insert  into jugador (ju_codigo,eq_codigo,ju_nombres,ju_apellidos)
+	values(1,1,'Gaston','Rodriguez');
+	insert  into jugador (ju_codigo,eq_codigo,ju_nombres,ju_apellidos)
+	values(2,2,'Adrian','Ramos');
+	insert  into jugador (ju_codigo,eq_codigo,ju_nombres,ju_apellidos)
+	values(3,3,'Jefferson','Duque');
+
+	select * from jugador;
+
+	--------------------------------PUNTOS------------------------------------------
+	insert  into puntos (pun_codigo,descripcion,puntos)
+	values(1,'ganado',3);
+	insert  into puntos (pun_codigo,descripcion,puntos)
+	values(2,'empatado',1);
+	insert  into puntos (pun_codigo,descripcion,puntos)
+	values(3,'perdido',0);
+
+	select * from puntos;
+
+	--------------------------------RESULTADO---------------------------------------
+	insert  into resultado (res_codigo,par_codigo,eq_codigo,pun_codigo)
+	values(1,1,1,1);
+	insert  into resultado (res_codigo,par_codigo,eq_codigo,pun_codigo)
+	values(2,1,1,2);
+	insert  into resultado (res_codigo,par_codigo,eq_codigo,pun_codigo)
+	values(3,2,2,3);
+	insert  into resultado (res_codigo,par_codigo,eq_codigo,pun_codigo)
+	values(4,2,2,2);
+	insert  into resultado (res_codigo,par_codigo,eq_codigo,pun_codigo)
+	values(5,3,3,1);
+	insert  into resultado (res_codigo,par_codigo,eq_codigo,pun_codigo)
+	values(6,3,3,2);
+
+
+	select * from resultado;
+
+	--------------------------------GOLES-------------------------------------------
+	insert  into goles (gol_codigo,ju_codigo,par_codigo,gol_cant)
+	values(1,1,1,3);
+	insert  into goles (gol_codigo,ju_codigo,par_codigo,gol_cant)
+	values(2,2,2,2);
+	insert  into goles (gol_codigo,ju_codigo,par_codigo,gol_cant)
+	values(3,3,3,1);
+	insert  into goles (gol_codigo,ju_codigo,par_codigo,gol_cant)
+	values(4,1,1,1);
+	insert  into goles (gol_codigo,ju_codigo,par_codigo,gol_cant)
+	values(5,2,2,4);
+	insert  into goles (gol_codigo,ju_codigo,par_codigo,gol_cant)
+	values(6,2,2,1);
+
+
+	select * from goles;
+
+	/*******************************TABLA*****************************************/
+	SELECT SUM(P.PUNTOS) PUNTOS,EQ.EQ_NOMBRE, COUNT(DECODE(P.PUNTOS,3,PUNTOS )) PG,
+	COUNT(DECODE(P.PUNTOS,1,PUNTOS )) PE,COUNT(DECODE(P.PUNTOS,0,PUNTOS )) PP,COUNT(PUNTOS ) PJ,
+	COUNT(G.GOL_CANT) GF
+	FROM RESULTADO R
+	INNER JOIN PUNTOS P ON R.PUN_CODIGO = P.PUN_CODIGO 
+	INNER JOIN PARTIDO PAR ON PAR.PAR_CODIGO = PAR.PAR_CODIGO 
+	INNER JOIN EQUIPO EQ ON R.EQ_CODIGO = EQ.EQ_CODIGO 
+	INNER JOIN JUGADOR JU ON JU.EQ_CODIGO = EQ.EQ_CODIGO 
+	INNER JOIN GOLES G ON G.ju_codigo = JU.ju_codigo
+	WHERE PAR.PAR_CODIGO = R.PAR_CODIGO
+	GROUP BY PAR.N_PARTIDO,EQ.EQ_NOMBRE
+	ORDER BY PUNTOS DESC
 ```
